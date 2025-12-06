@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PKB - Interaksi dan Biodiversitas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root{
+            --header-bg: #1f3b73;
+            --header-accent: #f7d716;
+            --menu-section-bg: #b7e3f8;
+            --menu-section-hover: #a8d7eb;
+            --menu-item-bg: #f4f4aa;
+            --menu-item-hover: #f1ee7a;
+            --link-color: #1a4dc9;
+        }
+
+        *{box-sizing: border-box;}
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: #ffffffaa; /* full putih */
+            color: #222;
+            overflow-x: hidden;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--header-bg);
+            color: var(--header-accent);
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .menu-area {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.06);
+            padding: 8px 12px;
+            border-radius: 8px;
+            user-select: none;
+        }
+
+        /* MENU SLIDE */
+        .menu-panel {
+            position: fixed;
+            top: 0;
+            left: -340px;
+            width: 330px;
+            max-width: 90%;
+            height: 100%;
+            background: #ffffff;
+            box-shadow: 3px 0 18px rgba(0,0,0,0.25);
+            transition: left 0.30s ease;
+            overflow-y: auto;
+            z-index: 9999;
+        }
+
+        .menu-panel.open {
+            left: 0;
+        }
+
+        .menu-header {
+            padding: 18px 16px;
+            font-size: 18px;
+            font-weight: 700;
+            background: #e8eef9;
+            border-bottom: 1px solid #d0d7e6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-btn {
+            font-size: 20px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 4px 6px;
+            border-radius: 6px;
+        }
+
+        .menu-section-title {
+            background: var(--menu-section-bg);
+            padding: 14px 18px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px solid #e0eef8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-section-title:hover {
+            background: var(--menu-section-hover);
+        }
+
+        .menu-item {
+            padding: 12px 18px;
+            background: var(--menu-item-bg);
+            border-bottom: 1px solid #e6e6e6;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #111;
+        }
+
+        .menu-item:hover {
+            background: var(--menu-item-hover);
+        }
+
+        .submenu {
+            display: none;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+        .submenu.open {
+            display: block;
+        }
+
+        .submenu .menu-item {
+            background: transparent;
+            padding-left: 28px;
+        }
+
+        /* KONTEN FULL PUTIH TANPA BOX */
+        .content {
+            padding: 28px 20px 80px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin: 0 0 6px 0;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 15px;
+            margin: 6px 0 20px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        ul { padding-left: 20px; margin: 8px 0 18px 0; }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 18px;
+            margin-bottom: 6px;
+        }
+
+        a { color: var(--link-color); text-decoration: none; }
+
+        /* FLOAT BUTTON */
+        .floating-btn {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 55px;
+            height: 55px;
+            background: #0057e0;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            z-index: 9998;
+            user-select: none;
+        }
+
+        /* Responsive */
+        @media (max-width:600px){
+            .title { font-size: 18px; }
+            .menu-area { font-size: 14px; padding: 6px 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <h1 class="title">Interaksi dan Biodiversitas</h1>
+        <button class="menu-area" aria-controls="menuPanel" aria-expanded="false" id="menuToggle" onclick="openMenu()" aria-label="Buka menu">☰ Menu</button>
+    </header>
+
+    <!-- MENU PANEL -->
+    <nav id="menuPanel" class="menu-panel" role="navigation" aria-hidden="true" aria-label="Panel navigasi">
+        <div class="menu-header">
+            <button class="close-btn" onclick="closeMenu()" aria-label="Tutup menu">✖</button>
+            <span>MENU</span>
+        </div>
+
+        <!-- HEWAN -->
+        <div class="menu-section-title" role="button" tabindex="0" onclick="toggleSubmenu('submenuHewan')" onkeydown="if(event.key==='Enter') toggleSubmenu('submenuHewan')">
+            <span>HEWAN</span>
+            <span id="caretHewan">▸</span>
+        </div>
+
+        <div id="submenuHewan" class="submenu" aria-hidden="true">
+            <a class="menu-item" href="mamalia.html">Kelompok 1 <span>›</span></a>
+            <a class="menu-item" href="carnivora.html">Kelompok 2 <span>›</span></a>
+            <a class="menu-item" href="herbivora.html">Kelompok 3 <span>›</span></a>
+            <a class="menu-item" href="apak.html">Kelompok 4 <span>›</span></a>
+            <a class="menu-item" href="apaja.html">Kelompok 5 <span>›</span></a>
+            <a class="menu-item" href="mamalia.html">Kelompok 6 <span>›</span></a>
+            <a class="menu-item" href="carnivora.html">Kelompok 7 <span>›</span></a>
+            <a class="menu-item" href="herbivora.html">Kelompok 8 <span>›</span></a>
+            <a class="menu-item" href="apak.html">Kelompok 9 <span>›</span></a>
+            <a class="menu-item" href="kelompok10.html">Kelompok 10 <span>›</span></a>
+        </div>
+
+        <!-- TUMBUHAN -->
+        <div class="menu-section-title" role="button" tabindex="0" onclick="toggleSubmenu('submenuTumbuhan')" onkeydown="if(event.key==='Enter') toggleSubmenu('submenuTumbuhan')">
+            <span>TUMBUHAN</span>
+            <span id="caretTumbuhan">▸</span>
+        </div>
+
+        <div id="submenuTumbuhan" class="submenu" aria-hidden="true">
+            <a class="menu-item" href="tumbuhan-a.html">Kelompok 1 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-b.html">Kelompok 2 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-c.html">Kelompok 3 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-d.html">Kelompok 4 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-e.html">Kelompok 5 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-f.html">Kelompok 6 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-g.html">Kelompok 7 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-h.html">Kelompok 8 <span>›</span></a>
+            <a class="menu-item" href="tumbuhan-i.html">Kelompok 9 <span>›</span></a>
+            <a class="menu-item" href="kelompokten.html">Kelompok 10 <span>›</span></a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="content" role="main">
+        <h2 style="font-style:italic; font-weight:600; margin-bottom:8px; color: #388e3c;">Interaksi Antar Makhluk Hidup dan Biodiversitas </h2>
+
+        <p>
+            Interaksi antar­makhluk hidup dalam sebuah ekosistem memainkan peran krusial dalam
+            membentuk struktur komunitas, dinamika populasi, dan keanekaragaman hayati.
+            Terdapat beberapa jenis interaksi utama, yaitu <strong>Mutualisme</strong> yaitu di mana dua
+            spesies berbeda saling menguntungkan satu sama lain; <strong>Komensalisme</strong> yaitu ketika
+            satu spesies mendapat keuntungan sementara spesies lain tidak dirugikan dan
+            tidak mendapat keuntungan; <strong>Parasitisme</strong> yaitu hubungan di mana satu pihak
+            memperoleh keuntungan dengan mengorbankan pihak lain; serta <strong>Predasi</strong> yaitu
+            interaksi makan-dimakan antar spesies di mana pemangsa memburu dan memakan
+            mangsa; dan <strong>Kompetisi</strong> yaitu persaingan antar individu atau spesies untuk
+            mendapatkan sumber daya terbatas seperti makanan, ruang, air, atau cahaya.
+            Semua bentuk interaksi ini secara kolektif memengaruhi distribusi, kelimpahan,
+            dan stabilitas spesies dalam ekosistem, sehingga sangat penting untuk memahami
+            bagaimana ekosistem berfungsi serta bagaimana perubahan—misalnya gangguan
+            habitat—dapat mempengaruhi keseimbangan ekologis (djohar, 2017)
+        </p>
+
+        <h2>1. Pengertian Interaksi Antar Makhluk Hidup</h2>
+        <p>
+            Interaksi antar makhluk hidup dalam sebuah ekosistem mencakup dua kategori utama:
+            interaksi <strong> interspesifik</strong> dan interaksi <strong> interspesifik</strong>. Interaksi intraspesifik
+            terjadi antara individu-individu dari spesies yang sama, sedangkan interaksi
+            interspesifik terjadi antara individu dari spesies berbeda. Kedua jenis
+            interaksi ini dapat berupa hubungan kompetitif, simbiosis, atau bentuk lainnya
+            dan mempengaruhi dinamika populasi dan struktur komunitas. Sebagai contoh,
+            penanaman beberapa tanaman kacang hijau yang berada dalam satu polybag
+            merupakan interaksi intraspesifik yang dapat memengaruhi hasil tanaman secara
+            positif atau negatif tergantung pada ketersediaan sumber daya (Akhiriana et
+            al., 2024).
+        </p>
+
+        <h2>2. Jenis-Jenis Interaksi Ekologi</h2>
+        <p>
+            Perubahan lingkungan memengaruhi interaksi antarorganisme dan keanekaragaman hayati
+            melalui mekanisme yang saling berkaitan. <strong>Pada aspek interaksi</strong>, deforestasi,
+            polusi, perubahan iklim, dan spesies invasif dapat mengganggu hubungan seperti
+            predasi, kompetisi, dan simbiosis karena organisme kehilangan habitat, sumber
+            daya berkurang, atau kondisi lingkungan tidak lagi mendukung perilaku alami
+            mereka. <strong>Pada aspek biodiversitas</strong>, perubahan lingkungan tersebut menyebabkan
+            penurunan jumlah spesies, hilangnya keunikan genetik, serta menyusutnya variasi
+            ekosistem akibat banyak organisme tidak mampu beradaptasi atau tersingkir oleh
+            spesies asing yang lebih dominan. Secara keseluruhan, kedua aspek ini
+            menunjukkan bahwa perubahan lingkungan tidak hanya mengubah cara makhluk hidup
+            berinteraksi, tetapi juga mengancam keberlanjutan keanekaragaman
+            hayati.(Ameliyah et al., 2025)
+        </p>
+
+        <h2>3. Konsep Biodiversitas (Keanekaragaman Hayati)</h2>
+        <p>
+            Biodiversitas atau Keanekaragaman Hayati adalah istilah yang menggambarkan total variasi
+            kehidupan di Bumi, mencakup keragaman pada tiga tingkatan utama:
+            <br>
+            <strong>keanekaragaman genetik </strong>(variasi gen dalam satu spesies, yang menentukan ketahanan individu),
+            <br>
+            <strong>keanekaragaman spesies</strong>(variasi jumlah jenis makhluk hidup di suatu ekosistem), dan
+            <br>
+            <strong>keanekaragaman ekosistem</strong>(variasi tipe-tipe habitat dan komunitas biologis, seperti hutan hujan, terumbu karang, atau padang lamun).
+            <br>
+            Variasi yang kompleks dan saling berhubungan ini sangat penting untuk menjaga keseimbangan ekologis, menyediakan sumber daya vital (pangan, obat-obatan), dan menjadi fondasi bagi kelangsungan semua kehidupan di planet ini.
+        </p>
+
+        <h2>4. Hubungan Interaksi dengan Struktur dan Tingkat Biodiversitas</h2>
+        <p>
+            Interaksi antarorganisme dalam suatu komunitas seperti kompetisi, predasi, mutualisme,
+            dan herbivori berperan penting dalam **membentuk struktur komunitas** melalui
+            pengaturan distribusi spesies, pola dominasi, dan ketersediaan ceruk ekologis
+            yang beragam. Struktur komunitas yang kompleks seperti adanya banyak strata
+            vegetasi dan variasi mikrohabitat memberikan ruang bagi lebih banyak spesies
+            untuk hidup berdampingan sehingga **meningkatkan tingkat biodiversitas**. Perubahan
+            dalam intensitas atau jenis interaksi misalnya hilangnya predator atau
+            penurunan penyerbuk dapat memicu perubahan struktur komunitas yang berujung
+            pada penurunan keanekaragaman hayati. Komunitas dengan jaringan interaksi yang
+            kuat cenderung lebih stabil dan lebih tahan terhadap gangguan lingkungan
+            dibanding komunitas yang strukturnya sederhana. Oleh karena itu strategi
+            konservasi perlu memperhatikan tidak hanya jumlah spesies tetapi juga kualitas
+            interaksi dan struktur komunitas sebagai penentu utama tingkat biodiversitas
+            (Kurnia, 2022).
+        </p>
+
+        <div class="reference">
+            <h3>Referensi:</h3>
+            <p>
+                Akhiriana, E., Hamawi, M., & Rahmatika, A. A. F. (2024). <em>Respons pertumbuhan dan
+                hasil tanaman kacang hijau terhadap interaksi intraspesifik.</em> Innofarm: Jurnal
+                Inovasi Pertanian, 26(1).
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+    <!-- FLOAT BUTTON -->
+    <button class="floating-btn" title="Unduh / aksi cepat" aria-label="Tombol cepat" onclick="onFloatingClick()">⬇</button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const menuPanel = document.getElementById('menuPanel');
+        const menuToggle = document.getElementById('menuToggle');
+
+        function openMenu() {
+            menuPanel.classList.add('open');
+            menuPanel.setAttribute('aria-hidden', 'false');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            // focus first focusable element inside menu for accessibility
+            const firstLink = menuPanel.querySelector('a, button, [tabindex]');
+            if(firstLink) firstLink.focus();
+        }
+
+        function closeMenu() {
+            menuPanel.classList.remove('open');
+            menuPanel.setAttribute('aria-hidden', 'true');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.focus();
+        }
+
+        // toggleSubmenu accepts an id to avoid duplicate IDs
+        function toggleSubmenu(id) {
+            const submenu = document.getElementById(id);
+            if (!submenu) return;
+            const isOpen = submenu.classList.toggle('open');
+            submenu.setAttribute('aria-hidden', (!isOpen).toString());
+            // change caret
+            if(id === 'submenuHewan') {
+                document.getElementById('caretHewan').textContent = isOpen ? '▾' : '▸';
+            } else if(id === 'submenuTumbuhan') {
+                document.getElementById('caretTumbuhan').textContent = isOpen ? '▾' : '▸';
+            }
+        }
+
+        function goPage(page){
+            window.location.href = page;
+        }
+
+        // Floating button behavior (placeholder) - replace with real action if needed
+        function onFloatingClick(){
+            // contoh: scroll to bottom
+            window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+        }
+
+        // Close menu with Escape key
+        document.addEventListener('keydown', function(e){
+            if (e.key === 'Escape') {
+                if(menuPanel.classList.contains('open')) closeMenu();
+            }
+        });
+
+        // Close menu when clicking outside it
+        document.addEventListener('click', function(e){
+            const target = e.target;
+            if (menuPanel.classList.contains('open') && !menuPanel.contains(target) && !menuToggle.contains(target)) {
+                closeMenu();
+            }
+        });
+
+        // Improve focus handling: trap focus inside menu when open (basic)
+        document.addEventListener('focusin', function(e){
+            if(!menuPanel.classList.contains('open')) return;
+            if(!menuPanel.contains(e.target) && !menuToggle.contains(e.target)){
+                // move focus back to menu
+                const first = menuPanel.querySelector('a, button, [tabindex]');
+                if(first) first.focus();
+            }
+        });
+    </script>
+
+</body>
+</html>
