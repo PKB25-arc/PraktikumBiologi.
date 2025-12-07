@@ -3,168 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirsak (Annona muricata L.)</title>
+    <title>Gallery Hewan</title>
 
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background: #9e9b9bd7;
             margin: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
         }
 
-        .title-box {
-            text-align: center;
-            padding: 25px 15px;
-        }
-
-        .title-box h1 {
-            font-size: 32px;
-            margin-bottom: 5px;
-        }
-
-        .title-box span {
-            font-size: 18px;
-            color: #666;
-        }
-
-        .content {
+        .container {
             width: 90%;
             max-width: 900px;
-            margin: auto;
-            padding-bottom: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
         }
 
         .card {
             background: #fff;
-            padding: 20px 25px;
+            margin: 25px auto;
             border-radius: 12px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-            margin-top: 25px;
+            overflow: hidden;
+            width: 350px; /* ukuran card */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease;
         }
 
-        .card h2 {
-            margin-top: 0;
+        .card:hover {
+            transform: scale(1.03);
         }
 
-        table {
+        .card img {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 12px;
+            height: 230px;
+            object-fit: cover; /* agar gambar tetap rapi */
         }
 
-        table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid #e2e2e2;
-        }
-
-        table td:first-child {
-            font-weight: bold;
-            width: 35%;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 25px;
+        .btn-view {
+            display: block;
+            width: 160px;
+            margin: 15px auto 25px;
+            padding: 10px 0;
+            text-align: center;
             background: #333;
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
             border-radius: 8px;
-            transition: 0.2s;
+            font-size: 16px;
+            transition: background 0.2s ease;
         }
 
-        .back-btn:hover {
+        .btn-view:hover {
             background: #555;
         }
+
+          .btn-view {
+            display: block;
+            width: 160px;
+            margin: 15px auto 25px;
+            padding: 10px 0;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-view:hover {
+            background: #555;
+        }
+
+        /* Responsif */
+        @media (max-width: 480px) {
+            .card {
+                width: 90%;
+            }
+            .card img {
+                height: 200px;
+            }
+        }
     </style>
+
 </head>
 <body>
 
-    <div class="title-box">
-        <h1>Pohon Sirsak</h1>
-        <span><i>Annona muricata L.</i></span>
+<div class="container">
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS TUMBUHAN </h1>
+
+    <!-- Card 1 -->
+    <div class="card">
+        <img src="bungatapak.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Bunga Tapak Dara</div>
+        <a href="bungatapak.html" class="btn-view">VIEW</a>
     </div>
 
-    <div class="content">
-
-        <div class="card">
-            <h2>Klasifikasi Taksonomi</h2>
-            <table>
-                <tr><td><span>Kingdom</span></td><td>Plantae</td></tr>
-                <tr><td><span>Divisi</span></td><td>Magnoliophyta</td></tr>
-                <tr><td><span>Kelas</span></td><td>Magnoliopsida</td></tr>
-                <tr><td><span>Ordo</span></td><td>Magnoliales</td></tr>
-                <tr><td><span>Famili</span></td><td>Annonaceae</td></tr>
-                <tr><td><span>Genus</span></td><td>Annona</td></tr>
-                <tr><td><span>Spesies</span></td><td><i>Annona muricata L.</i></td></tr>
-            </table>
-        </div>
-
-        <div class="card">
-            <h2>Jenis dan Deskripsi Umum</h2>
-            <p>
-                Sirsak adalah <span>pohon buah-buahan perennial (tahunan)</span> yang <span>selalu hijau</span>. Tingginya dapat mencapai <span>8-10 meter</span>. Tanaman ini dikenal karena buahnya yang memiliki <span>rasa manis-asam yang khas</span>.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Ciri-ciri Morfologi</h2>
-            <p>
-                1. <span>Batang:</span> Berkayu, percabangan rendah, kulit kayu <span>coklat tua</span>.<br>
-                2. <span>Daun:</span> Tunggal, <span>berbentuk bulat telur memanjang (elips)</span>, permukaan atas <span>hijau tua dan mengilap</span>.<br>
-                3. <span>Bunga:</span> Tunggal, muncul di batang atau cabang (<span>kauliflori</span>), <span>tiga kelopak hijau kekuningan</span> dan <span>tiga mahkota kuning tebal</span>.<br>
-                4. <span>Buah:</span> Buah majemuk, berbentuk <span>jantung atau oval</span>, kulit buah hijau dengan <span>duri-duri lunak</span> yang tidak tajam. Daging buah <span>putih, berserat</span>, dengan banyak biji hitam.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Habitat & Lokasi</h2>
-            <p>
-                • Berasal dari <span>Karibia, Amerika Tengah, dan Amerika Selatan</span>. Dibudidayakan di daerah tropis di seluruh dunia, termasuk <span>Indonesia</span>.<br>
-                • Tumbuh optimal di <span>dataran rendah hingga ketinggian 1000 mdpl</span>.<br>
-                • Lokasi pengamatan: Lingkungan <span>pedesaan/tropis</span> dengan vegetasi lebat, ditanam di <span>kebun rumah</span>.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Ciri Khas</h2>
-            <p>
-                Ciri khas yang paling mencolok adalah <span>buahnya yang berduri lunak</span> dan <span>bentuknya yang seperti jantung</span>. Daunnya yang <span>lebar dan mengilap</span> juga mudah dikenali.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Manfaat & Peranan Ekologis</h2>
-            <p>
-                1. <span>Manfaat:</span> Buahnya dimakan segar atau diolah (jus, dodol). <span>Daun, biji, dan akarnya</span> digunakan dalam <span>pengobatan tradisional</span>.<br>
-                2. <span>Peranan Ekologis:</span> Menyediakan <span>nektar dan pollen untuk serangga penyerbuk</span>. Dapat menjadi bagian dari <span>sistem agroforestri</span> sederhana.
-            </p>
-        </div>
-        
-        <div class="card">
-            <h2>Catatan Hasil Pengamatan</h2>
-            <p>
-                • Vegetasi <span>sangat hijau</span> (ketersediaan air melimpah).<br>
-                • Posisi buah <span>menggantung pada cabang yang relatif rendah</span>.<br>
-                • Kondisi lingkungan ideal: <span>curah hujan cukup tinggi</span> dan <span>tempat terbuka dengan sinar matahari penuh</span>.<br>
-                • Hal menarik: Bunganya sering dikunjungi <span>kumbang penyerbuk</span>.
-            </p>
-        </div>
-
-        <div class="card">
-            <h2>Interaksi yang Teramati</h2>
-            <p>
-                1. <span>Dengan Serangga:</span> <span>Kumbang dan lebah</span> mengunjungi bunga untuk penyerbukan.<br>
-                2. <span>Dengan Manusia:</span> Pemilik kebun <span>memanen buah</span> untuk konsumsi atau dijual.<br>
-                3. <span>Dengan lingkungan:</span> Pohon mendapatkan <span>air dari hujan</span> dan <span>sinar matahari tersebar</span> untuk fotosintesis.<br>
-                4. <span>Dengan tanaman lainnya:</span> Tumbuh berdampingan dengan <span>pohon pisang</span>, saling berbagi ruang dan mungkin <span>bersaing dalam hal cahaya</span>.
-            </p>
-        </div>
-
-        <a href="kelompokeight.html" class="back-btn">Kembali</a>
-
+    <!-- Card 2 -->
+    <div class="card">
+        <img src="pohonjambu.jpg" alt="Singa">
+        <div class="animal-name">Pohon Jambu</div>
+        <a href="pohonjambu9.html" class="btn-view">VIEW</a>
     </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <img src="pucukmerah.jpg" alt="Kadal">
+        <div class="animal-name">Pucuk Merah</div>
+        <a href="pucukmerah9.html" class="btn-view">VIEW</a>
+    </div>
+
+
+      <!-- Card 4 -->
+    <div class="card">
+        <img src="LIDAH MERTUA.jpg" alt="Hewan 10">
+        <div class="animal-name">Pohon Mangga</div>
+        <a href="pohonmangga9.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="ANGGUR.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Palem Kuning</div>
+        <a href="palemkuning.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <img src="BIOLA CANTIK.jpg" alt="Singa">
+        <div class="animal-name">Daun Sri Rejeki</div>
+        <a href="daunsri9.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card">
+        <img src="ASAM LONDO.jpg" alt="Hewan 6">
+        <div class="animal-name">Asam Londo</div>
+        <a href="asamlondo9.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card">
+        <img src="JERUK LIMAU.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Tanaman Janda Bolong</div>
+        <a href="tanamanjanda9.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card">
+        <img src="BAMBU KUNING.jpg" alt="Singa">
+        <div class="animal-name">Sirih Gading Emas</div>
+        <a href="sirihgading9.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card">
+        <img src="BIDARA.jpg" alt="Hewan 9">
+        <div class="animal-name">Cemara Norflok</div>
+        <a href="cemara9.html" class="btn-view">VIEW</a>
+    </div>
+
+     <a href="index.html" class="back-btn">Kembali</a>
+
+</div>
 
 </body>
 </html>
