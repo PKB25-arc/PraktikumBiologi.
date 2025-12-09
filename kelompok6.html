@@ -26,12 +26,12 @@
             font-weight: 700;
         }
 
-        /* GRID 2 KOLOM, RESPONSIVE */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            justify-items: center;
+        /* WRAPPER UNTUK GRID CARD */
+        .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
         }
 
         .card {
@@ -55,9 +55,9 @@
 
         .animal-name {
             text-align: center;
-            font-size: 20px;
-            font-weight: 600;
             padding: 15px 0 5px;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .btn-view {
@@ -80,7 +80,7 @@
 
         .back-btn {
             display: inline-block;
-            margin-top: 30px;
+            margin-top: 25px;
             background: #333;
             color: #fff;
             text-decoration: none;
@@ -93,14 +93,12 @@
             background: #555;
         }
 
-        /* HP */
-        @media (max-width: 600px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
+        /* RESPONSIVE HP */
+        @media (max-width: 480px) {
             .card {
                 width: 90%;
             }
+
             .card img {
                 height: 200px;
             }
@@ -111,75 +109,64 @@
 <body>
 
 <div class="container">
-
     <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
-    <div class="grid">
+    <div class="card-wrapper">
 
-        <!-- Card 1 -->
         <div class="card">
             <img src="Harimau Benggala6.jpg" alt="Rusa Tutul">
-            <div class="animal-name">Harimau Benggala</div>
+            <div class="animal-name">Harimau Benggala </div>
             <a href="harimaubenggala6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 2 -->
         <div class="card">
             <img src="Kucing Bakau6.jpg" alt="Singa">
             <div class="animal-name">Kucing Bakau</div>
             <a href="kucingbakau6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 3 -->
         <div class="card">
             <img src="Kancil6.jpg" alt="Kadal">
             <div class="animal-name">Kancil</div>
             <a href="kancil6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 4 -->
         <div class="card">
             <img src="Jerapah6.jpg" alt="Hewan 10">
             <div class="animal-name">Jerapah</div>
             <a href="jerapah6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 5 -->
         <div class="card">
             <img src="Monyet Boti6.jpg" alt="Rusa Tutul">
             <div class="animal-name">Monyet Boti</div>
             <a href="monyetboti6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 6 -->
         <div class="card">
             <img src="Kalong6.jpg" alt="Singa">
             <div class="animal-name">Kalong</div>
             <a href="kalong6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 7 -->
         <div class="card">
             <img src="Burung Tongtong6.jpg" alt="Hewan 6">
             <div class="animal-name">Burung Tongtong</div>
             <a href="tongtong6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 8 -->
         <div class="card">
             <img src="Burung Beo6.jpg" alt="Rusa Tutul">
             <div class="animal-name">Burung Beo</div>
             <a href="beo6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 9 -->
         <div class="card">
             <img src="Iguana Merah6.jpg" alt="Singa">
             <div class="animal-name">Iguana Merah</div>
             <a href="iguana6.html" class="btn-view">VIEW</a>
         </div>
 
-        <!-- Card 10 -->
         <div class="card">
             <img src="Kura-Kura Aldebra6.jpg" alt="Hewan 9">
             <div class="animal-name">Kura-Kura Aldebra</div>
