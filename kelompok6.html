@@ -17,20 +17,20 @@
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 900px;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 700;
         }
 
-        /* Layout grid */
+        /* GRID 2 KOLOM, RESPONSIVE */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            grid-gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
             justify-items: center;
         }
 
@@ -38,8 +38,7 @@
             background: #fff;
             border-radius: 12px;
             overflow: hidden;
-            width: 100%;
-            max-width: 350px;
+            width: 350px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.2s ease;
         }
@@ -56,15 +55,15 @@
 
         .animal-name {
             text-align: center;
+            font-size: 20px;
             font-weight: 600;
-            font-size: 18px;
             padding: 15px 0 5px;
         }
 
         .btn-view {
             display: block;
-            width: 150px;
-            margin: 10px auto 20px;
+            width: 160px;
+            margin: 15px auto 25px;
             padding: 10px 0;
             text-align: center;
             background: #333;
@@ -85,7 +84,7 @@
             background: #333;
             color: #fff;
             text-decoration: none;
-            padding: 12px 22px;
+            padding: 10px 20px;
             border-radius: 8px;
             transition: 0.2s;
         }
@@ -94,7 +93,14 @@
             background: #555;
         }
 
-        @media (max-width: 480px) {
+        /* HP */
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                width: 90%;
+            }
             .card img {
                 height: 200px;
             }
@@ -105,75 +111,84 @@
 <body>
 
 <div class="container">
-    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN</h1>
+
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
     <div class="grid">
 
+        <!-- Card 1 -->
         <div class="card">
-            <img src="Harimau Benggala6.jpg" alt="Harimau Benggala">
+            <img src="Harimau Benggala6.jpg" alt="Rusa Tutul">
             <div class="animal-name">Harimau Benggala</div>
             <a href="harimaubenggala6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 2 -->
         <div class="card">
-            <img src="Kucing Bakau6.jpg" alt="Kucing Bakau">
+            <img src="Kucing Bakau6.jpg" alt="Singa">
             <div class="animal-name">Kucing Bakau</div>
             <a href="kucingbakau6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 3 -->
         <div class="card">
-            <img src="Kancil6.jpg" alt="Kancil">
+            <img src="Kancil6.jpg" alt="Kadal">
             <div class="animal-name">Kancil</div>
             <a href="kancil6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 4 -->
         <div class="card">
-            <img src="Jerapah6.jpg" alt="Jerapah">
+            <img src="Jerapah6.jpg" alt="Hewan 10">
             <div class="animal-name">Jerapah</div>
             <a href="jerapah6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 5 -->
         <div class="card">
-            <img src="Monyet Boti6.jpg" alt="Monyet Boti">
+            <img src="Monyet Boti6.jpg" alt="Rusa Tutul">
             <div class="animal-name">Monyet Boti</div>
             <a href="monyetboti6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 6 -->
         <div class="card">
-            <img src="Kalong6.jpg" alt="Kalong">
+            <img src="Kalong6.jpg" alt="Singa">
             <div class="animal-name">Kalong</div>
             <a href="kalong6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 7 -->
         <div class="card">
-            <img src="Burung Tongtong6.jpg" alt="Burung Tongtong">
+            <img src="Burung Tongtong6.jpg" alt="Hewan 6">
             <div class="animal-name">Burung Tongtong</div>
             <a href="tongtong6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 8 -->
         <div class="card">
-            <img src="Burung Beo6.jpg" alt="Burung Beo">
+            <img src="Burung Beo6.jpg" alt="Rusa Tutul">
             <div class="animal-name">Burung Beo</div>
             <a href="beo6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 9 -->
         <div class="card">
-            <img src="Iguana Merah6.jpg" alt="Iguana Merah">
+            <img src="Iguana Merah6.jpg" alt="Singa">
             <div class="animal-name">Iguana Merah</div>
             <a href="iguana6.html" class="btn-view">VIEW</a>
         </div>
 
+        <!-- Card 10 -->
         <div class="card">
-            <img src="Kura-Kura Aldebra6.jpg" alt="Kura-Kura Aldebra">
+            <img src="Kura-Kura Aldebra6.jpg" alt="Hewan 9">
             <div class="animal-name">Kura-Kura Aldebra</div>
             <a href="kurakura6.html" class="btn-view">VIEW</a>
         </div>
 
     </div>
 
-    <div style="text-align:center;">
-        <a href="index.html" class="back-btn">Kembali</a>
-    </div>
+    <a href="index.html" class="back-btn">Kembali</a>
 
 </div>
 
