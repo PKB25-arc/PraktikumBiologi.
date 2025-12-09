@@ -26,9 +26,16 @@
             font-weight: 700;
         }
 
+        /* --- GRID RESPONSIVE --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* desktop: 2 kolom */
+            gap: 25px;
+            justify-items: center;
+        }
+
         .card {
             background: #fff;
-            margin: 25px auto;
             border-radius: 12px;
             overflow: hidden;
             width: 350px;
@@ -50,7 +57,7 @@
             text-align: center;
             font-size: 20px;
             font-weight: 600;
-            padding-top: 10px;
+            padding: 15px 0 5px;
         }
 
         .btn-view {
@@ -73,7 +80,7 @@
 
         .back-btn {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 30px;
             background: #333;
             color: #fff;
             text-decoration: none;
@@ -86,8 +93,11 @@
             background: #555;
         }
 
-        /* Responsif */
-        @media (max-width: 480px) {
+        /* RESPONSIVE HP */
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr; /* hp: 1 card per baris */
+            }
             .card {
                 width: 90%;
             }
@@ -96,83 +106,90 @@
             }
         }
     </style>
+
 </head>
 <body>
 
 <div class="container">
-    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN</h1>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="jerapah4.jpg" alt="Jerapah">
-        <div class="animal-name">Jerapah</div>
-        <a href="jerapah4.html" class="btn-view">VIEW</a>
-    </div>
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="gajahsMsumatera4.jpg" alt="Gajah Sumatera">
-        <div class="animal-name">Gajah Sumatera</div>
-        <a href="gajahsumatra4.html" class="btn-view">VIEW</a>
-    </div>
+    <div class="grid">
 
-    <!-- Card 3 -->
-    <div class="card">
-        <img src="monyetboti4.jpg" alt="Monyet Boti">
-        <div class="animal-name">Monyet Boti</div>
-        <a href="monyetboti4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="jerapah4.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Jerapah</div>
+            <a href="jerapah4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 4 -->
-    <div class="card">
-        <img src="rusabawean4.jpg" alt="Rusa Bawean">
-        <div class="animal-name">Rusa Bawean</div>
-        <a href="rusabawean4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="Gajah Sumatera 4.jpg" alt="Singa">
+            <div class="animal-name">Gajah Sumatera</div>
+            <a href="gajahsumatra4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 5 -->
-    <div class="card">
-        <img src="kasuari4.jpg" alt="Kasuari Gelambir Dua">
-        <div class="animal-name">Kasuari Gelambir Dua</div>
-        <a href="kasuari4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="Monyet Boti4.jpg" alt="Kadal">
+            <div class="animal-name">Monyet Boti</div>
+            <a href="monyetboti4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 6 -->
-    <div class="card">
-        <img src="burungdaramahkota4.jpg" alt="Burung Dara Mahkota">
-        <div class="animal-name">Dara Mahkota Scheepmakeri</div>
-        <a href="burungdara4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="Rusa Bawean4 .jpg" alt="Hewan 10">
+            <div class="animal-name">Rusa Bawean</div>
+            <a href="rusabawean4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 7 -->
-    <div class="card">
-        <img src="ulrsanca4.jpg" alt="Ular Sanca">
-        <div class="animal-name">Ular Sanca</div>
-        <a href="ularsanca4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="Burung Kasuari Gelambir Dua.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Kasuari Gelambir Dua</div>
+            <a href="kasuari4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 8 -->
-    <div class="card">
-        <img src="iguanahijau4.jpg" alt="Iguana Hijau">
-        <div class="animal-name">Iguana Hijau</div>
-        <a href="iguana4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="Burung Dara Mahkota Scheepmakeri .jpg" alt="Singa">
+            <div class="animal-name">Dara Mahkota Scheepmakeri</div>
+            <a href="burungdara4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 9 -->
-    <div class="card">
-        <img src="leleekormerah4.jpg" alt="Ikan Lele Ekor Merah">
-        <div class="animal-name">Ikan Lele Ekor Merah</div>
-        <a href="ikanlele4.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 7 -->
+        <div class="card">
+            <img src="Sanca Sawah Albino4.jpg" alt="Hewan 6">
+            <div class="animal-name">Ular Sanca</div>
+            <a href="ularsanca4.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 10 -->
-    <div class="card">
-        <img src="arwanasuperred4.jpg" alt="Arwana Super Red">
-        <div class="animal-name">Ikan Arwana Super Red</div>
-        <a href="ikanarwana4.html" class="btn-view">VIEW</a>
+        <!-- Card 8 -->
+        <div class="card">
+            <img src="Iguana Hijau4.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Iguana Hijau</div>
+            <a href="iguana4.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <img src="Red Tail Catfish .jpg" alt="Singa">
+            <div class="animal-name">Ikan Lele Ekor Merah</div>
+            <a href="ikanlele4.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <img src="Arwana Super Red4 .jpg" alt="Hewan 9">
+            <div class="animal-name">Ikan Arwana Super Red</div>
+            <a href="ikanarwana4.html" class="btn-view">VIEW</a>
+        </div>
+
     </div>
 
     <a href="index.html" class="back-btn">Kembali</a>
+
 </div>
 
 </body>
