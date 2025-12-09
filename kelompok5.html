@@ -26,9 +26,16 @@
             font-weight: 700;
         }
 
+        /* GRID 2 KOLOM DESKTOP, 1 KOLOM HP */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            justify-items: center;
+        }
+
         .card {
             background: #fff;
-            margin: 25px auto;
             border-radius: 12px;
             overflow: hidden;
             width: 350px;
@@ -49,8 +56,8 @@
         .animal-name {
             text-align: center;
             font-size: 20px;
-            font-weight: bold;
-            padding-top: 10px;
+            font-weight: 600;
+            padding: 15px 0 5px;
         }
 
         .btn-view {
@@ -73,7 +80,7 @@
 
         .back-btn {
             display: inline-block;
-            margin-top: 25px;
+            margin-top: 30px;
             background: #333;
             color: #fff;
             text-decoration: none;
@@ -86,7 +93,11 @@
             background: #555;
         }
 
-        @media (max-width: 480px) {
+        /* RESPONSIVE HP */
+        @media (max-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
             .card {
                 width: 90%;
             }
@@ -100,76 +111,81 @@
 <body>
 
 <div class="container">
-    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN</h1>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="sitatunga5.jpg" alt="Sitatunga">
-        <div class="animal-name">Sitatunga</div>
-        <a href="sitatunga5.html" class="btn-view">VIEW</a>
-    </div>
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="bulus5.jpg" alt="Bulus Moncong Babi">
-        <div class="animal-name">Bulus Moncong Babi</div>
-        <a href="bulusmoncong5.html" class="btn-view">VIEW</a>
-    </div>
+    <div class="grid">
 
-    <!-- Card 3 -->
-    <div class="card">
-        <img src="lutungbudeng5.jpg" alt="Lutung Budeng">
-        <div class="animal-name">Lutung Budeng</div>
-        <a href="lutungbudeng5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="sitatunga5.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Sitatunga</div>
+            <a href="sitatung5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 4 -->
-    <div class="card">
-        <img src="kuauperak5.jpg" alt="Kuau Perak">
-        <div class="animal-name">Kuau Perak</div>
-        <a href="kuauperak5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="bulus5.jpg" alt="Singa">
+            <div class="animal-name">Bulus Moncong Babi</div>
+            <a href="bulusmoncong5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 5 -->
-    <div class="card">
-        <img src="monyetkokah5.jpg" alt="Monyet Kokah">
-        <div class="animal-name">Monyet Kokah</div>
-        <a href="monyetkokah5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="lutung budeng5.jpg" alt="Kadal">
+            <div class="animal-name">Lutung Budeng</div>
+            <a href="lutungbudeng5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 6 -->
-    <div class="card">
-        <img src="rusatutul5.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Rusa Tutul</div>
-        <a href="rusatutul5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="kuau perak5.jpg" alt="Hewan 10">
+            <div class="animal-name">Kuau Perak</div>
+            <a href="kuau5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 7 -->
-    <div class="card">
-        <img src="binturong5.jpg" alt="Binturong">
-        <div class="animal-name">Binturong</div>
-        <a href="binturong5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="monyet kokah5.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Monyet Kokah</div>
+            <a href="monyetkokah5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 8 -->
-    <div class="card">
-        <img src="labilabi5.jpg" alt="Labi-Labi">
-        <div class="animal-name">Labi-Labi</div>
-        <a href="labilabi5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="rusa tutul5.jpg" alt="Singa">
+            <div class="animal-name">Rusa Tutul</div>
+            <a href="rusatutul5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 9 -->
-    <div class="card">
-        <img src="kuaolady5.jpg" alt="Kuao Lady Amherst">
-        <div class="animal-name">Kuao Lady Amherst</div>
-        <a href="kuaolady5.html" class="btn-view">VIEW</a>
-    </div>
+        <!-- Card 7 -->
+        <div class="card">
+            <img src="binturong5.jpg" alt="Hewan 6">
+            <div class="animal-name">Binturong</div>
+            <a href="binturong5.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 10 -->
-    <div class="card">
-        <img src="kancil5.jpg" alt="Kancil">
-        <div class="animal-name">Kancil</div>
-        <a href="kancil5.html" class="btn-view">VIEW</a>
+        <!-- Card 8 -->
+        <div class="card">
+            <img src="labi-labi5.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Labi-Labi</div>
+            <a href="labilabi5.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <img src="kuao lady5.jpg" alt="Singa">
+            <div class="animal-name">kuao Lady Amherst</div>
+            <a href="kuao5.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <img src="kancil5.jpg" alt="Hewan 9">
+            <div class="animal-name">Kancil</div>
+            <a href="kancil5.html" class="btn-view">VIEW</a>
+        </div>
+
     </div>
 
     <a href="index.html" class="back-btn">Kembali</a>
