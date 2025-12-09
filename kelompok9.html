@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Hewan</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #9e9b9bd7;
+            margin: 0;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .card {
+            background: #fff;
+            margin: 25px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 350px; /* ukuran card */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover; /* agar gambar tetap rapi */
+        }
+
+         .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        .btn-view {
+            display: block;
+            width: 160px;
+            margin: 15px auto 25px;
+            padding: 10px 0;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-view:hover {
+            background: #555;
+        }
+
+        /* Responsif */
+        @media (max-width: 480px) {
+            .card {
+                width: 90%;
+            }
+            .card img {
+                height: 200px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
+
+    <!-- Card 1 -->
+    <div class="card">
+        <img src="orangutan9.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Orang Utan</div>
+        <a href="orangutan.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+        <img src="gajahsumatra9.jpg" alt="Singa">
+        <div class="animal-name">Gajah Sumatera</div>
+        <a href="gajahsumatra.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+        <img src="oryx9.jpg" alt="Kadal">
+        <div class="animal-name">Oryx</div>
+        <a href="oryx.html" class="btn-view">VIEW</a>
+    </div>
+
+
+      <!-- Card 4 -->
+    <div class="card">
+        <img src="sancakembang9.jpg" alt="Hewan 10">
+        <div class="animal-name">Sanca Kembang</div>
+        <a href="sancakembang.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <img src="binturong9.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Binturong Sumatera</div>
+        <a href="binturongsumatra.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <img src="komodo9.jpg" alt="Singa">
+        <div class="animal-name">Komodo</div>
+        <a href="komodo.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card">
+        <img src="jenjangmahkota9.jpg" alt="Hewan 6">
+        <div class="animal-name">Burung Jenjang Mahkota</div>
+        <a href="burungjenjangmahkota.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card">
+        <img src="merakhijau9.jpg" alt="Rusa Tutul">
+        <div class="animal-name">Burung Merak Hijau</div>
+        <a href="burungmerakbiru.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="card">
+        <img src="kudanil9.jpg" alt="Singa">
+        <div class="animal-name">Kudanil</div>
+        <a href="kudanil.html" class="btn-view">VIEW</a>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="card">
+        <img src="harimau9.jpg" alt="Hewan 9">
+        <div class="animal-name">Harimau Sumatra</div>
+        <a href="harimausumatra9.html" class="btn-view">VIEW</a>
+    </div>
+
+     <a href="index.html" class="back-btn">Kembali</a>
+
+</div>
+
+</body>
+</html>
