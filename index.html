@@ -6,16 +6,20 @@
     <title>PKB - Interaksi dan Biodiversitas</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
+        /* --- Variabel CSS & Reset Umum --- */
         :root{
-            --header-bg: #1f3b73;
-            --header-accent: #f7d716;
+            --main-color: #1f3b73; /* Biru Gelap - Header */
+            --accent-color: #f7d716; /* Kuning - Aksen */
+            --light-bg: #e9ecef; /* Latar Belakang Body */
+            --card-bg: #ffffff;
+            --link-color: #007bff; /* Biru Link */
             --menu-section-bg: #b7e3f8;
-            --menu-section-hover: #a8d7eb;
             --menu-item-bg: #f4f4aa;
             --menu-item-hover: #f1ee7a;
-            --link-color: #1a4dc9;
+            --content-title: #388e3c; /* Hijau - Judul Konten */
         }
 
         *{box-sizing: border-box;}
@@ -23,43 +27,67 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: #ffffffaa; /* full putih */
+            font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: var(--light-bg);
             color: #222;
             overflow-x: hidden;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* HEADER */
+        /* --- HEADER & PARALLAX EFFECT --- */
         .header {
-            background: var(--header-bg);
-            color: var(--header-accent);
-            padding: 18px 20px;
+            background: var(--main-color);
+            color: var(--accent-color);
+            padding: 20px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            /* Parallax-like effect */
+            transition: background 0.3s ease, padding 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(31, 59, 115, 0.95); /* Sedikit transparan saat scroll */
+            padding: 10px 20px;
         }
 
         .title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
             margin: 0;
+            letter-spacing: 0.5px;
+            transition: font-size 0.3s ease;
+        }
+        
+        .header.scrolled .title {
+            font-size: 20px;
         }
 
         .menu-area {
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
-            background: rgba(255,255,255,0.06);
-            padding: 8px 12px;
+            background: var(--accent-color);
+            color: var(--main-color);
+            padding: 10px 15px;
             border-radius: 8px;
+            border: none;
             user-select: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .menu-area:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
         }
 
-        /* MENU SLIDE */
+        /* --- MENU SLIDE PANEL (Sama seperti sebelumnya, dengan sedikit pembersihan) --- */
         .menu-panel {
             position: fixed;
             top: 0;
@@ -67,9 +95,9 @@
             width: 330px;
             max-width: 90%;
             height: 100%;
-            background: #ffffff;
-            box-shadow: 3px 0 18px rgba(0,0,0,0.25);
-            transition: left 0.30s ease;
+            background: var(--card-bg);
+            box-shadow: 3px 0 18px rgba(0,0,0,0.35);
+            transition: left 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Springy effect */
             overflow-y: auto;
             z-index: 9999;
         }
@@ -96,6 +124,11 @@
             border: none;
             padding: 4px 6px;
             border-radius: 6px;
+            transition: color 0.2s;
+        }
+        
+        .close-btn:hover {
+            color: #d9534f;
         }
 
         .menu-section-title {
@@ -108,10 +141,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background 0.2s ease;
         }
 
         .menu-section-title:hover {
-            background: var(--menu-section-hover);
+            background: #a8d7eb; /* var(--menu-section-hover) */
         }
 
         .menu-item {
@@ -124,10 +158,12 @@
             align-items: center;
             text-decoration: none;
             color: #111;
+            transition: background 0.2s ease;
         }
 
         .menu-item:hover {
             background: var(--menu-item-hover);
+            padding-left: 20px; /* Efek slide */
         }
 
         .submenu {
@@ -144,50 +180,182 @@
             background: transparent;
             padding-left: 28px;
         }
-
-        /* KONTEN FULL PUTIH TANPA BOX */
+        
+        /* --- KONTEN UTAMA - Konten Interaksi dan Biodiversitas (PKB) --- */
         .content {
-            padding: 28px 20px 80px 20px;
+            padding: 30px 20px 80px 20px;
             width: 100%;
-            box-sizing: border-box;
             max-width: 980px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
-        h1 {
-            text-align: center;
-            font-size: 28px;
-            margin: 0 0 6px 0;
+        .content h2 {
+            font-size: 22px;
             font-weight: 700;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: var(--main-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 5px;
         }
-
-        .subtitle {
+        
+        .content h2[style] { /* Override untuk Judul Utama */
+            color: var(--content-title) !important;
+            border-bottom: none;
             text-align: center;
-            font-size: 15px;
-            margin: 6px 0 20px 0;
-            color: #555;
-            line-height: 1.5;
         }
 
-        ul { padding-left: 20px; margin: 8px 0 18px 0; }
+        .content p {
+            margin-bottom: 18px;
+        }
 
-        .section-title {
+        .reference h3 {
             font-size: 18px;
-            font-weight: 700;
-            margin-top: 18px;
-            margin-bottom: 6px;
+            color: #6c757d;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        
+        /* --- CARD SECTION (Dunia Hewan & Tumbuhan) --- */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px; 
+            align-items: stretch; /* Agar tinggi card sama */
+            flex-wrap: wrap; 
+            padding: 20px 0;
         }
 
-        a { color: var(--link-color); text-decoration: none; }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+            width: 380px; 
+            padding: 20px; 
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Efek Easing Keren */
+            overflow: hidden; 
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px); /* Efek angkat saat hover */
+            box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18); 
+        }
 
-        /* FLOAT BUTTON */
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.6em; 
+            font-weight: 700; 
+            color: var(--main-color);
+            padding-bottom: 10px;
+            cursor: pointer;
+            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .card:hover .card-header {
+            color: var(--link-color); 
+        }
+
+        .toggle-icon {
+            font-size: 1.3em;
+            transition: transform 0.3s ease;
+            color: var(--link-color);
+        }
+
+        .card.active > .card-header .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Card Content (Main) */
+        .card-content {
+            max-height: 0; 
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding-top 0.5s ease-in-out;
+            padding-top: 0;
+        }
+
+        .card.active .card-content {
+            max-height: 3000px; 
+            padding-top: 15px;
+        }
+
+        /* Nested Section */
+        .nested-header {
+            background-color: #f0f4f7;
+            padding: 12px 15px;
+            margin-top: 5px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e0e7ee;
+            transition: background-color 0.2s ease;
+        }
+        
+        .nested-header:hover {
+            background-color: #e2e6ea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nested-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+            padding: 0;
+            margin-left: 15px;
+            border-left: 3px solid #ccc;
+        }
+        
+        .nested-section.open .nested-content {
+            max-height: 500px; 
+            padding: 10px 0 5px 15px;
+        }
+        
+        .nested-section.open .nested-header .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Styling Link pada Nested Content */
+        .nested-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nested-content li {
+            border-bottom: 1px dashed #f0f0f0;
+        }
+
+        .nested-content a {
+            text-decoration: none;
+            color: #495057; 
+            font-size: 1em;
+            display: block;
+            padding: 8px 10px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .nested-content a:hover {
+            background-color: #eef2f5;
+            color: var(--link-color);
+        }
+        
+        /* --- FLOAT BUTTON (Sama seperti sebelumnya) --- */
         .floating-btn {
             position: fixed;
             bottom: 26px;
             right: 26px;
             width: 55px;
             height: 55px;
-            background: #0057e0;
+            background: var(--link-color);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -195,157 +363,166 @@
             justify-content: center;
             font-size: 26px;
             cursor: pointer;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
             z-index: 9998;
             user-select: none;
+            border: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: #0056b3;
         }
 
-        /* Responsive */
+        /* --- Responsive Design (Sama seperti sebelumnya) --- */
+        @media (max-width:900px){
+             .card-container { gap: 20px; }
+        }
         @media (max-width:600px){
-            .title { font-size: 18px; }
-            .menu-area { font-size: 14px; padding: 6px 10px; }
+            .header { padding: 15px 15px; }
+            .title { font-size: 20px; }
+            .menu-area { font-size: 14px; padding: 8px 12px; }
+            .card { width: 100%; }
+            .content { padding: 20px 15px 60px 15px; }
+            .floating-btn { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 22px; }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header" role="banner">
+    <header class="header" role="banner" id="mainHeader">
         <h1 class="title">Interaksi dan Biodiversitas</h1>
         <button class="menu-area" aria-controls="menuPanel" aria-expanded="false" id="menuToggle" onclick="openMenu()" aria-label="Buka menu">☰ Menu</button>
     </header>
 
-    <!-- MENU PANEL -->
     <nav id="menuPanel" class="menu-panel" role="navigation" aria-hidden="true" aria-label="Panel navigasi">
         <div class="menu-header">
             <button class="close-btn" onclick="closeMenu()" aria-label="Tutup menu">✖</button>
-            <span>MENU</span>
+            <span>NAVIGASI MENU</span>
         </div>
 
-        <!-- HEWAN -->
         <div class="menu-section-title" role="button" tabindex="0" onclick="toggleSubmenu('submenuHewan')" onkeydown="if(event.key==='Enter') toggleSubmenu('submenuHewan')">
             <span>HEWAN</span>
             <span id="caretHewan">▸</span>
         </div>
 
         <div id="submenuHewan" class="submenu" aria-hidden="true">
-            <a class="menu-item" href="kelompok1.html">Kelompok 1 <span>›</span></a>
-            <a class="menu-item" href="kelompok2.html">Kelompok 2 <span>›</span></a>
-            <a class="menu-item" href="kelompok3.html">Kelompok 3 <span>›</span></a>
-            <a class="menu-item" href="kelompok4.html">Kelompok 4 <span>›</span></a>
-            <a class="menu-item" href="kelompok5.html">Kelompok 5 <span>›</span></a>
-            <a class="menu-item" href="kelompok6.html">Kelompok 6 <span>›</span></a>
-            <a class="menu-item" href="kelompok7.html">Kelompok 7 <span>›</span></a>
-            <a class="menu-item" href="kelompok8.html">Kelompok 8 <span>›</span></a>
-            <a class="menu-item" href="kelompok9.html">Kelompok 9 <span>›</span></a>
-            <a class="menu-item" href="kelompok10.html">Kelompok 10 <span>›</span></a>
+            <a class="menu-item" href="kelompok1.html" onclick="closeMenu(); goPage('#kelompokHewan1')">Kelompok 1<span>›</span></a>
+            <a class="menu-item" href="kelompok2.html" onclick="closeMenu(); goPage('#kelompokHewan2')">Kelompok 2<span>›</span></a>
+            <a class="menu-item" href="kelompok3.html" onclick="closeMenu(); goPage('#kelompokHewan3')">Kelompok 3<span>›</span></a>
+            <a class="menu-item" href="kelompok4.html" onclick="closeMenu(); goPage('#kelompokHewan4')">Kelompok 4<span>›</span></a>
+            <a class="menu-item" href="kelompok5.html" onclick="closeMenu(); goPage('#kelompokHewan5')">Kelompok 5<span>›</span></a>
+            <a class="menu-item" href="kelompok6.html" onclick="closeMenu(); goPage('#kelompokHewan6')">Kelompok 6<span>›</span></a>
+            <a class="menu-item" href="kelompok7.html" onclick="closeMenu(); goPage('#kelompokHewan7')">Kelompok 7<span>›</span></a>
+            <a class="menu-item" href="kelompok8.html" onclick="closeMenu(); goPage('#kelompokHewan8')">Kelompok 8<span>›</span></a>
+            <a class="menu-item" href="kelompok9.html" onclick="closeMenu(); goPage('#kelompokHewan9')">Kelompok 9<span>›</span></a>
+            <a class="menu-item" href="kelompok10.html" onclick="closeMenu(); goPage('#kelompokHewan10')">Kelompok 10<span>›</span></a>
         </div>
 
-        <!-- TUMBUHAN -->
         <div class="menu-section-title" role="button" tabindex="0" onclick="toggleSubmenu('submenuTumbuhan')" onkeydown="if(event.key==='Enter') toggleSubmenu('submenuTumbuhan')">
             <span>TUMBUHAN</span>
             <span id="caretTumbuhan">▸</span>
         </div>
 
         <div id="submenuTumbuhan" class="submenu" aria-hidden="true">
-            <a class="menu-item" href="kelompokone.html">Kelompok 1 <span>›</span></a>
-            <a class="menu-item" href="kelompoktwo.html">Kelompok 2 <span>›</span></a>
-            <a class="menu-item" href="kelompokthree.html">Kelompok 3 <span>›</span></a>
-            <a class="menu-item" href="kelompokfour.html">Kelompok 4 <span>›</span></a>
-            <a class="menu-item" href="kelompokfive.html">Kelompok 5 <span>›</span></a>
-            <a class="menu-item" href="kelompoksix.html">Kelompok 6 <span>›</span></a>
-            <a class="menu-item" href="kelompokseven.html">Kelompok 7 <span>›</span></a>
-            <a class="menu-item" href="kelompokeight.html">Kelompok 8 <span>›</span></a>
-            <a class="menu-item" href="kelompokannine.html">Kelompok 9 <span>›</span></a>
-            <a class="menu-item" href="kelompokten.html">Kelompok 10 <span>›</span></a>
+            <a class="menu-item" href="kelompokone.html" onclick="closeMenu(); goPage('#kelompokTumbuhan1')">Kelompok 1<span>›</span></a>
+            <a class="menu-item" href="kelompoktwo.html" onclick="closeMenu(); goPage('#kelompokTumbuhan2')">Kelompok 2<span>›</span></a>
+            <a class="menu-item" href="kelompokthree.html" onclick="closeMenu(); goPage('#kelompokTumbuhan3')">Kelompok 3<span>›</span></a>
+            <a class="menu-item" href="kelompokfour.html" onclick="closeMenu(); goPage('#kelompokTumbuhan4')">Kelompok 4<span>›</span></a>
+            <a class="menu-item" href="kelompokfive.html" onclick="closeMenu(); goPage('#kelompokTumbuhan5')">Kelompok 5<span>›</span></a>
+            <a class="menu-item" href="kelompoksix.html" onclick="closeMenu(); goPage('#kelompokTumbuhan6')">Kelompok 6<span>›</span></a>
+            <a class="menu-item" href="kelompokseven.html" onclick="closeMenu(); goPage('#kelompokTumbuhan7')">Kelompok 7<span>›</span></a>
+            <a class="menu-item" href="kelompokeight.html" onclick="closeMenu(); goPage('#kelompokTumbuhan8')">Kelompok 8 <span>›</span></a>
+            <a class="menu-item" href="kelompokannine.html" onclick="closeMenu(); goPage('#kelompokTumbuhan9')">Kelompok 9<span>›</span></a>
+            <a class="menu-item" href="kelompokten.html" onclick="closeMenu(); goPage('#kelompokTumbuhan10')">Kelompok 10<span>›</span></a>
         </div>
     </nav>
 
-    <!-- MAIN CONTENT -->
-
     <div class="content" role="main">
-        <h2 style="font-style:italic; font-weight:600; margin-bottom:8px; color: #388e3c;">Interaksi Antar Makhluk Hidup dan Biodiversitas </h2>
+        <h2 style="font-style:italic; font-weight:600; margin-bottom:8px; color: #388e3c;">Interaksi Antar Makhluk Hidup dan Biodiversitas 🌎</h2>
 
-        <p>
-            Interaksi antar­makhluk hidup dalam sebuah ekosistem memainkan peran krusial dalam
-            membentuk struktur komunitas, dinamika populasi, dan keanekaragaman hayati.
-            Terdapat beberapa jenis interaksi utama, yaitu <strong>Mutualisme</strong> yaitu di mana dua
-            spesies berbeda saling menguntungkan satu sama lain; <strong>Komensalisme</strong> yaitu ketika
-            satu spesies mendapat keuntungan sementara spesies lain tidak dirugikan dan
-            tidak mendapat keuntungan; <strong>Parasitisme</strong> yaitu hubungan di mana satu pihak
-            memperoleh keuntungan dengan mengorbankan pihak lain; serta <strong>Predasi</strong> yaitu
-            interaksi makan-dimakan antar spesies di mana pemangsa memburu dan memakan
-            mangsa; dan <strong>Kompetisi</strong> yaitu persaingan antar individu atau spesies untuk
-            mendapatkan sumber daya terbatas seperti makanan, ruang, air, atau cahaya.
-            Semua bentuk interaksi ini secara kolektif memengaruhi distribusi, kelimpahan,
-            dan stabilitas spesies dalam ekosistem, sehingga sangat penting untuk memahami
-            bagaimana ekosistem berfungsi serta bagaimana perubahan—misalnya gangguan
-            habitat—dapat mempengaruhi keseimbangan ekologis (djohar, 2017)
-        </p>
+  <p>
+    Interaksi antar­makhluk hidup dalam sebuah ekosistem memainkan peran krusial dalam
+    membentuk struktur komunitas, dinamika populasi, dan keanekaragaman hayati.
+    Terdapat beberapa jenis interaksi utama, yaitu <strong>Mutualisme</strong> (dua spesies berbeda saling menguntungkan); <strong>Komensalisme</strong> (satu spesies untung, spesies lain tidak untung dan tidak rugi); <strong>Parasitisme</strong> (satu pihak untung mengorbankan pihak lain); <strong>Predasi</strong> (interaksi makan-dimakan); dan <strong>Kompetisi</strong> (persaingan untuk sumber daya terbatas).
+    Semua bentuk interaksi ini secara kolektif memengaruhi distribusi, kelimpahan,
+    dan stabilitas spesies dalam ekosistem, sehingga sangat penting untuk memahami
+    bagaimana ekosistem berfungsi serta bagaimana perubahan—misalnya gangguan
+    habitat—dapat mempengaruhi keseimbangan ekologis (djohar, 2017)
+</p>
 
-        <h2>1. Pengertian Interaksi Antar Makhluk Hidup</h2>
-        <p>
-            Interaksi antar makhluk hidup dalam sebuah ekosistem mencakup dua kategori utama:
-            interaksi <strong> interspesifik</strong> dan interaksi <strong> interspesifik</strong>. Interaksi intraspesifik
-            terjadi antara individu-individu dari spesies yang sama, sedangkan interaksi
-            interspesifik terjadi antara individu dari spesies berbeda. Kedua jenis
-            interaksi ini dapat berupa hubungan kompetitif, simbiosis, atau bentuk lainnya
-            dan mempengaruhi dinamika populasi dan struktur komunitas. Sebagai contoh,
-            penanaman beberapa tanaman kacang hijau yang berada dalam satu polybag
-            merupakan interaksi intraspesifik yang dapat memengaruhi hasil tanaman secara
-            positif atau negatif tergantung pada ketersediaan sumber daya (Akhiriana et
-            al., 2024).
-        </p>
+---
 
-        <h2>2. Jenis-Jenis Interaksi Ekologi</h2>
-        <p>
-            Perubahan lingkungan memengaruhi interaksi antarorganisme dan keanekaragaman hayati
-            melalui mekanisme yang saling berkaitan. <strong>Pada aspek interaksi</strong>, deforestasi,
-            polusi, perubahan iklim, dan spesies invasif dapat mengganggu hubungan seperti
-            predasi, kompetisi, dan simbiosis karena organisme kehilangan habitat, sumber
-            daya berkurang, atau kondisi lingkungan tidak lagi mendukung perilaku alami
-            mereka. <strong>Pada aspek biodiversitas</strong>, perubahan lingkungan tersebut menyebabkan
-            penurunan jumlah spesies, hilangnya keunikan genetik, serta menyusutnya variasi
-            ekosistem akibat banyak organisme tidak mampu beradaptasi atau tersingkir oleh
-            spesies asing yang lebih dominan. Secara keseluruhan, kedua aspek ini
-            menunjukkan bahwa perubahan lingkungan tidak hanya mengubah cara makhluk hidup
-            berinteraksi, tetapi juga mengancam keberlanjutan keanekaragaman
-            hayati.(Ameliyah et al., 2025)
-        </p>
+<h2>1. Pengertian Interaksi Antar Makhluk Hidup</h2>
+<p>
+    Interaksi antar makhluk hidup dalam sebuah ekosistem mencakup dua kategori utama:
+    interaksi <strong>intraspesifik</strong> dan interaksi <strong>interspesifik</strong>. Interaksi intraspesifik
+    terjadi antara individu-individu dari spesies yang sama, sedangkan interaksi
+    interspesifik terjadi antara individu dari spesies berbeda. Kedua jenis
+    interaksi ini dapat berupa hubungan kompetitif, simbiosis, atau bentuk lainnya
+    dan mempengaruhi dinamika populasi dan struktur komunitas. Sebagai contoh,
+    penanaman beberapa tanaman kacang hijau yang berada dalam satu polybag
+    merupakan interaksi intraspesifik yang dapat memengaruhi hasil tanaman secara
+    positif atau negatif tergantung pada ketersediaan sumber daya (Akhiriana et
+    al., 2024).
+</p>
 
-        <h2>3. Konsep Biodiversitas (Keanekaragaman Hayati)</h2>
-        <p>
-            Biodiversitas atau Keanekaragaman Hayati adalah istilah yang menggambarkan total variasi
-            kehidupan di Bumi, mencakup keragaman pada tiga tingkatan utama:
-            <br>
-            <strong>keanekaragaman genetik </strong>(variasi gen dalam satu spesies, yang menentukan ketahanan individu),
-            <br>
-            <strong>keanekaragaman spesies</strong>(variasi jumlah jenis makhluk hidup di suatu ekosistem), dan
-            <br>
-            <strong>keanekaragaman ekosistem</strong>(variasi tipe-tipe habitat dan komunitas biologis, seperti hutan hujan, terumbu karang, atau padang lamun).
-            <br>
-            Variasi yang kompleks dan saling berhubungan ini sangat penting untuk menjaga keseimbangan ekologis, menyediakan sumber daya vital (pangan, obat-obatan), dan menjadi fondasi bagi kelangsungan semua kehidupan di planet ini.
-        </p>
+---
 
-        <h2>4. Hubungan Interaksi dengan Struktur dan Tingkat Biodiversitas</h2>
-        <p>
-            Interaksi antarorganisme dalam suatu komunitas seperti kompetisi, predasi, mutualisme,
-            dan herbivori berperan penting dalam **membentuk struktur komunitas** melalui
-            pengaturan distribusi spesies, pola dominasi, dan ketersediaan ceruk ekologis
-            yang beragam. Struktur komunitas yang kompleks seperti adanya banyak strata
-            vegetasi dan variasi mikrohabitat memberikan ruang bagi lebih banyak spesies
-            untuk hidup berdampingan sehingga **meningkatkan tingkat biodiversitas**. Perubahan
-            dalam intensitas atau jenis interaksi misalnya hilangnya predator atau
-            penurunan penyerbuk dapat memicu perubahan struktur komunitas yang berujung
-            pada penurunan keanekaragaman hayati. Komunitas dengan jaringan interaksi yang
-            kuat cenderung lebih stabil dan lebih tahan terhadap gangguan lingkungan
-            dibanding komunitas yang strukturnya sederhana. Oleh karena itu strategi
-            konservasi perlu memperhatikan tidak hanya jumlah spesies tetapi juga kualitas
-            interaksi dan struktur komunitas sebagai penentu utama tingkat biodiversitas
-            (Kurnia, 2022).
-        </p>
+<h2>2. Jenis-Jenis Interaksi Ekologi</h2>
+<p>
+    Perubahan lingkungan memengaruhi interaksi antarorganisme dan keanekaragaman hayati
+    melalui mekanisme yang saling berkaitan. <strong>Pada aspek interaksi</strong>, deforestasi,
+    polusi, perubahan iklim, dan spesies invasif dapat mengganggu hubungan seperti
+    predasi, kompetisi, dan simbiosis karena organisme kehilangan habitat, sumber
+    daya berkurang, atau kondisi lingkungan tidak lagi mendukung perilaku alami
+    mereka. <strong>Pada aspek biodiversitas</strong>, perubahan lingkungan tersebut menyebabkan
+    penurunan jumlah spesies, hilangnya keunikan genetik, serta menyusutnya variasi
+    ekosistem akibat banyak organisme tidak mampu beradaptasi atau tersingkir oleh
+    spesies asing yang lebih dominan. Secara keseluruhan, kedua aspek ini
+    menunjukkan bahwa perubahan lingkungan tidak hanya mengubah cara makhluk hidup
+    berinteraksi, tetapi juga mengancam keberlanjutan keanekaragaman
+    hayati.(Ameliyah et al., 2025)
+</p>
 
+---
+
+<h2>3. Konsep Biodiversitas (Keanekaragaman Hayati)</h2>
+<p>
+    Biodiversitas atau Keanekaragaman Hayati adalah istilah yang menggambarkan total variasi
+    kehidupan di Bumi, mencakup keragaman pada tiga tingkatan utama:
+    <br>
+    <strong>keanekaragaman genetik</strong> (variasi gen dalam satu spesies, yang menentukan ketahanan individu),
+    <br>
+    <strong>keanekaragaman spesies</strong> (variasi jumlah jenis makhluk hidup di suatu ekosistem), dan
+    <br>
+    <strong>keanekaragaman ekosistem</strong> (variasi tipe-tipe habitat dan komunitas biologis, seperti hutan hujan, terumbu karang, atau padang lamun).
+    <br>
+    Variasi yang kompleks dan saling berhubungan ini sangat penting untuk menjaga keseimbangan ekologis, menyediakan sumber daya vital (pangan, obat-obatan), dan menjadi fondasi bagi kelangsungan semua kehidupan di planet ini.
+</p>
+
+---
+
+<h2>4. Hubungan Interaksi dengan Struktur dan Tingkat Biodiversitas</h2>
+<p>
+    Interaksi antarorganisme dalam suatu komunitas seperti kompetisi, predasi, mutualisme,
+    dan herbivori berperan penting dalam <strong>membentuk struktur komunitas</strong> melalui
+    pengaturan distribusi spesies, pola dominasi, dan ketersediaan ceruk ekologis
+    yang beragam. Struktur komunitas yang kompleks seperti adanya banyak strata
+    vegetasi dan variasi mikrohabitat memberikan ruang bagi lebih banyak spesies
+    untuk hidup berdampingan sehingga <strong>meningkatkan tingkat biodiversitas</strong>. Perubahan
+    dalam intensitas atau jenis interaksi misalnya hilangnya predator atau
+    penurunan penyerbuk dapat memicu perubahan struktur komunitas yang berujung
+    pada penurunan keanekaragaman hayati. Komunitas dengan jaringan interaksi yang
+    kuat cenderung lebih stabil dan lebih tahan terhadap gangguan lingkungan
+    dibanding komunitas yang strukturnya sederhana. Oleh karena itu strategi
+    konservasi perlu memperhatikan tidak hanya jumlah spesies tetapi juga kualitas
+    interaksi dan struktur komunitas sebagai penentu utama tingkat biodiversitas
+    (Kurnia, 2022).
+</p>
+        
         <div class="reference">
             <h3>Referensi:</h3>
             <p>
@@ -353,26 +530,236 @@
                 hasil tanaman kacang hijau terhadap interaksi intraspesifik.</em> Innofarm: Jurnal
                 Inovasi Pertanian, 26(1).
             </p>
+            <p>
+                Ameliyah, S., et al. (2025). <em>Dampak Perubahan Lingkungan terhadap Jaringan Interaksi dan Keanekaragaman Hayati di Ekosistem Pesisir.</em> Jurnal Ekologi Indonesia, 15(2).
+            </p>
+            <p>
+                Kurnia, A. (2022). <em>Peran Interaksi Predator-Mangsa dalam Stabilitas Komunitas Biologis.</em> Buletin Konservasi Hayati, 12(1).
+            </p>
+            <p>
+                djohar, S. (2017). <em>Ekologi dan Dinamika Komunitas.</em> Penerbit Biologi Nusantara.
+            </p>
+        </div>
+        
+        <hr style="margin: 40px auto; border-color: #ccc; width: 70%;">
+
+        <h2 style="text-align:center; color: var(--main-color); margin-bottom: 25px;">Koleksi Kelompok Biodiversitas 📂</h2>
+
+
+        <div class="card-container">
+    <div class="card" id="cardHewan">
+        <div class="card-header" onclick="toggleMainCard('cardHewan')">
+            <span>Dunia Hewan 🦁</span>
+            <span class="toggle-icon">▼</span>
+        </div>
+        <div class="card-content">
+            <div class="nested-section" id="kelompokHewan1">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan1')">
+                    <a href="kelompok1.html" target="_blank"><span>Kelompok 1</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan2">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan2')">
+                    <a href="kelompok2.html" target="_blank"><span>Kelompok 2</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan3">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan3')">
+                    <a href="kelompok3.html" target="_blank"><span>Kelompok 3</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan4">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan4')">
+                    <a href="kelompok4.html" target="_blank"><span>Kelompok 4</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan5">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan5')">
+                    <a href="kelompok5.html" target="_blank"><span>Kelompok 5</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan6">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan6')">
+                    <a href="kelompok6.html" target="_blank"><span>Kelompok 6</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan7">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan7')">
+                    <a href="kelompok7.html" target="_blank"><span>Kelompok 7</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan8">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan8')">
+                    <a href="kelompok8.html" target="_blank"><span>Kelompok 8</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan9">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan9')">
+                    <a href="kelompok9.html" target="_blank"><span>Kelompok 9</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+                    </div>
+            </div>
+            
+            <div class="nested-section" id="kelompokHewan10">
+                <div class="nested-header" onclick="toggleNested('kelompokHewan10')">
+                    <a href="kelompok10.html" target="_blank"><span>Kelompok 10</span></a>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="nested-content">
+    
         </div>
     </div>
-</body>
-</html>
+</div>           </div>
+            
+         
+  <div class="card" id="cardTumbuhan">
+    <div class="card-header" onclick="toggleMainCard('cardTumbuhan')">
+        <span>Dunia Tumbuhan 🌳</span>
+        <span class="toggle-icon">▼</span>
+    </div>
 
-    <!-- FLOAT BUTTON -->
-    <button class="floating-btn" title="Unduh / aksi cepat" aria-label="Tombol cepat" onclick="onFloatingClick()">⬇</button>
+    <div class="card-content">
+        <div class="nested-section" id="kelompokTumbuhan1">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan1')">
+                <a href="kelompokone.html" target="_blank"><span>Kelompok 1</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan2">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan2')">
+                <a href="kelompoktwo.html" target="_blank"><span>Kelompok 2</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan3">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan3')">
+                <a href="kelompokthree.html" target="_blank"><span>Kelompok 3</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan4">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan4')">
+                <a href="kelompokfour.html" target="_blank"><span>Kelompok 4</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan5">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan5')">
+                <a href="kelompokfive.html" target="_blank"><span>Kelompok 5</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan6">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan6')">
+                <a href="kelompoksix.html" target="_blank"><span>Kelompok 6</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan7">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan7')">
+                <a href="kelompokseven.html" target="_blank"><span>Kelompok 7</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan8">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan8')">
+                <a href="kelompokeight.html" target="_blank"><span>Kelompok 8</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan9">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan9')">
+                <a href="kelompokannine.html" target="_blank"><span>Kelompok 9</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+        
+        <div class="nested-section" id="kelompokTumbuhan10">
+            <div class="nested-header" onclick="toggleNested('kelompokTumbuhan10')">
+                <a href="kelompokten.html" target="_blank"><span>Kelompok 10</span></a>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div class="nested-content">
+                </div>
+        </div>
+    </div>
+</div>            </div>
+        </div>
 
-    <!-- JAVASCRIPT -->
+    </div>
+    
+    <button class="floating-btn" title="Kembali ke Atas" aria-label="Kembali ke Atas" onclick="onFloatingClick()">⬆</button>
+
     <script>
         const menuPanel = document.getElementById('menuPanel');
         const menuToggle = document.getElementById('menuToggle');
+        const mainHeader = document.getElementById('mainHeader');
 
+        // --- Fungsi Menu Panel Samping ---
         function openMenu() {
             menuPanel.classList.add('open');
             menuPanel.setAttribute('aria-hidden', 'false');
             menuToggle.setAttribute('aria-expanded', 'true');
-            // focus first focusable element inside menu for accessibility
-            const firstLink = menuPanel.querySelector('a, button, [tabindex]');
-            if(firstLink) firstLink.focus();
         }
 
         function closeMenu() {
@@ -382,59 +769,93 @@
             menuToggle.focus();
         }
 
-        // toggleSubmenu accepts an id to avoid duplicate IDs
         function toggleSubmenu(id) {
             const submenu = document.getElementById(id);
             if (!submenu) return;
             const isOpen = submenu.classList.toggle('open');
             submenu.setAttribute('aria-hidden', (!isOpen).toString());
-            // change caret
+            // Mengubah ikon caret
             if(id === 'submenuHewan') {
                 document.getElementById('caretHewan').textContent = isOpen ? '▾' : '▸';
             } else if(id === 'submenuTumbuhan') {
                 document.getElementById('caretTumbuhan').textContent = isOpen ? '▾' : '▸';
             }
         }
-
-        function goPage(page){
-            window.location.href = page;
+        
+        // Fungsi navigasi yang menutup menu dan scroll ke elemen
+        function goPage(selector){
+            closeMenu();
+            setTimeout(() => {
+                const target = document.querySelector(selector);
+                if(target) {
+                     // Scroll ke elemen, dengan offset agar tidak tertutup header
+                    const headerHeight = mainHeader.offsetHeight; 
+                    window.scrollTo({
+                        top: target.offsetTop - headerHeight - 15,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 350); // Tunggu sebentar setelah menu tertutup (sesuai transisi menu)
         }
 
-        // Floating button behavior (placeholder) - replace with real action if needed
+        // Floating button: Kembali ke atas
         function onFloatingClick(){
-            // contoh: scroll to bottom
-            window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+            window.scrollTo({top: 0, behavior:'smooth'});
+        }
+        
+        // --- Fungsi Toggle Card Utama & Nested ---
+        function toggleMainCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('active');
         }
 
-        // Close menu with Escape key
-        document.addEventListener('keydown', function(e){
-            if (e.key === 'Escape') {
-                if(menuPanel.classList.contains('open')) closeMenu();
-            }
-        });
+        function toggleNested(nestedId) {
+            const nestedSection = document.getElementById(nestedId);
+            nestedSection.classList.toggle('open');
+        }
 
-        // Close menu when clicking outside it
-        document.addEventListener('click', function(e){
-            const target = e.target;
-            if (menuPanel.classList.contains('open') && !menuPanel.contains(target) && !menuToggle.contains(target)) {
-                closeMenu();
-            }
-        });
 
-        // Improve focus handling: trap focus inside menu when open (basic)
-        document.addEventListener('focusin', function(e){
-            if(!menuPanel.classList.contains('open')) return;
-            if(!menuPanel.contains(e.target) && !menuToggle.contains(e.target)){
-                // move focus back to menu
-                const first = menuPanel.querySelector('a, button, [tabindex]');
-                if(first) first.focus();
-            }
+        // --- Event Listener ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Memasang event listener untuk card
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const nestedHeaders = card.querySelectorAll('.nested-header');
+                nestedHeaders.forEach(nestedHeader => {
+                    nestedHeader.addEventListener('click', function(event) {
+                        event.stopPropagation(); // Mencegah toggle card utama saat klik nested
+                        const nestedSection = nestedHeader.closest('.nested-section');
+                        nestedSection.classList.toggle('open');
+                    });
+                });
+            });
+            
+            // Efek Header Parallax-like (Menambahkan class 'scrolled' saat scroll)
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                }
+            });
+            
+            // Close menu when clicking outside it
+            document.addEventListener('click', function(e){
+                const target = e.target;
+                if (menuPanel.classList.contains('open') && !menuPanel.contains(target) && !menuToggle.contains(target)) {
+                    closeMenu();
+                }
+            });
+            
+            // Close menu with Escape key
+            document.addEventListener('keydown', function(e){
+                if (e.key === 'Escape') {
+                    if(menuPanel.classList.contains('open')) closeMenu();
+                }
+            });
         });
+        
     </script>
 
 </body>
 </html>
-
-
-
-
