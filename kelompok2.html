@@ -26,12 +26,19 @@
             font-weight: 700;
         }
 
+        /* WRAPPER AGAR CARD BISA 2 PER BARIS */
+        .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
         .card {
             background: #fff;
-            margin: 25px auto;
             border-radius: 12px;
             overflow: hidden;
-            width: 350px; /* ukuran card */
+            width: calc(50% - 15px); /* 2 card per baris */
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.2s ease;
         }
@@ -43,24 +50,16 @@
         .card img {
             width: 100%;
             height: 230px;
-            object-fit: cover; /* agar gambar tetap rapi */
+            object-fit: cover;
         }
 
-
-    .back-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: #333;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: 0.2s;
+        .animal-name {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
         }
 
-        .back-btn:hover {
-            background: #555;
-        }
         .btn-view {
             display: block;
             width: 160px;
@@ -79,10 +78,24 @@
             background: #555;
         }
 
-        /* Responsif */
-        @media (max-width: 480px) {
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        /* HP – 1 CARD PER BARIS */
+        @media (max-width: 600px){
             .card {
-                width: 90%;
+                width: 100%;
             }
             .card img {
                 height: 200px;
@@ -94,80 +107,83 @@
 <body>
 
 <div class="container">
-    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN</h1>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="kapibara2.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Kapibara</div>
-        <a href="kapibara2.html" class="btn-view">VIEW</a>
+    <div class="card-wrapper">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="kapibara2.jpg" alt="Kapibara">
+            <div class="animal-name">Kapibara</div>
+            <a href="kapibara2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="jagalpapua.jpg" alt="Burung Jagal Papua">
+            <div class="animal-name">Burung Jagal Papua</div>
+            <a href="jagalpapua2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="kudanil2.jpg" alt="Kudanil">
+            <div class="animal-name">Kudanil</div>
+            <a href="kudanil2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="siamang2.jpg" alt="Siamang">
+            <div class="animal-name">Siamang</div>
+            <a href="siamang2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="hamster2.jpg" alt="Hamster">
+            <div class="animal-name">Hamster</div>
+            <a href="hamster2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="kadalbiru2.jpg" alt="Kadal Lidah Biru">
+            <div class="animal-name">Kadal Lidah Biru</div>
+            <a href="kadal2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <img src="flamingo2.jpg" alt="Flamingo Eropa">
+            <div class="animal-name">Flamingo Eropa</div>
+            <a href="flamingo2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <img src="merakbiru2.jpg" alt="Merak Biru Albino">
+            <div class="animal-name">Burung Merak Biru Albino</div>
+            <a href="merakbiru2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <img src="anoa2.jpg" alt="Anoa">
+            <div class="animal-name">Anoa</div>
+            <a href="anoa2.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <img src="lele2.jpg" alt="Ikan Lele">
+            <div class="animal-name">Ikan Lele</div>
+            <a href="ikanlele2.html" class="btn-view">VIEW</a>
+        </div>
+
     </div>
 
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="jagalpapua.jpg" alt="Singa">
-        <div class="animal-name">Burung Jagal Papua</div>
-        <a href="jagalpapua2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-        <img src="kudanil2.jpg" alt="Kadal">
-        <div class="animal-name">Kudanil</div>
-        <a href="kudanil2.html" class="btn-view">VIEW</a>
-    </div>
-
-
-      <!-- Card 4 -->
-    <div class="card">
-        <img src="siamang2.jpg" alt="Hewan 10">
-        <div class="animal-name">Siamang</div>
-        <a href="siamang2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-        <img src="hamster2.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Hamster</div>
-        <a href="hamster2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-        <img src="kadalbiru2.jpg" alt="Singa">
-        <div class="animal-name">Kadal Lidah Biru</div>
-        <a href="kadal2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="card">
-        <img src="flamingo2.jpg" alt="Hewan 6">
-        <div class="animal-name">Flamingo Eropa</div>
-        <a href="flamingo2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="card">
-        <img src="merakbiru2.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Burung Merak Biru Albino</div>
-        <a href="merakbiru2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="card">
-        <img src="anoa2.jpg" alt="Singa">
-        <div class="animal-name">Anoa</div>
-        <a href="anoa2.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 10 -->
-    <div class="card">
-        <img src="lele2.jpg" alt="Hewan 9">
-        <div class="animal-name">Ikan Lele</div>
-        <a href="ikanlele2.html" class="btn-view">VIEW</a>
-    </div>
-
-  <a href="index.html" class="back-btn">Kembali</a>
+    <a href="index.html" class="back-btn">Kembali</a>
 
 </div>
 
