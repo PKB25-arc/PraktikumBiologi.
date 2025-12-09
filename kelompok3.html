@@ -26,12 +26,19 @@
             font-weight: 700;
         }
 
+        /* Grid untuk 2 card per baris */
+        .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
         .card {
             background: #fff;
-            margin: 25px auto;
             border-radius: 12px;
             overflow: hidden;
-            width: 350px; /* ukuran card */
+            width: calc(50% - 15px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.2s ease;
         }
@@ -43,24 +50,16 @@
         .card img {
             width: 100%;
             height: 230px;
-            object-fit: cover; /* agar gambar tetap rapi */
+            object-fit: cover;
         }
 
-
-    .back-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: #333;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: 0.2s;
+        .animal-name {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
         }
 
-        .back-btn:hover {
-            background: #555;
-        }
         .btn-view {
             display: block;
             width: 160px;
@@ -79,10 +78,24 @@
             background: #555;
         }
 
-        /* Responsif */
-        @media (max-width: 480px) {
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover {
+            background: #555;
+        }
+
+        /* HP: 1 card per baris */
+        @media (max-width: 600px){
             .card {
-                width: 90%;
+                width: 100%;
             }
             .card img {
                 height: 200px;
@@ -96,78 +109,81 @@
 <div class="container">
     <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="gorila3.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Gorila Dataran  Rendah</div>
-        <a href="gorila3.html" class="btn-view">VIEW</a>
+    <div class="card-wrapper">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <img src="gorila3.jpg" alt="Gorila">
+            <div class="animal-name">Gorila Dataran Rendah</div>
+            <a href="gorila3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <img src="berangberang3.jpg" alt="Berang-berang">
+            <div class="animal-name">Berang - Berang</div>
+            <a href="berangberang3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src="jenjangmahkota3.jpg" alt="Jenjang Mahkota">
+            <div class="animal-name">Jenjang Mahkota</div>
+            <a href="jenjangmahkota3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <img src="lutungperak3.jpg" alt="Lutung Perak">
+            <div class="animal-name">Lutung Perak</div>
+            <a href="lutungperak3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <img src="kalong3.jpg" alt="Kalong">
+            <div class="animal-name">Kalong</div>
+            <a href="kalong3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="card">
+            <img src="binturong3.jpg" alt="Binturong">
+            <div class="animal-name">Binturong Kalimantan</div>
+            <a href="binturong3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="card">
+            <img src="pelikan3.jpg" alt="Pelikan Timor">
+            <div class="animal-name">Pelikan Timor</div>
+            <a href="pelikantimor3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="card">
+            <img src="elangular3.jpg" alt="Elang Ular Bido">
+            <div class="animal-name">Elang Ular Bido</div>
+            <a href="elangular3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="card">
+            <img src="aramerah3.jpg" alt="Ara Merah">
+            <div class="animal-name">Ara Merah Sayap Hijau</div>
+            <a href="aramerah3.html" class="btn-view">VIEW</a>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="card">
+            <img src="musanggaling3.jpg" alt="Musang Galing">
+            <div class="animal-name">Musang Galing</div>
+            <a href="musanggaling3.html" class="btn-view">VIEW</a>
+        </div>
+
     </div>
 
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="berangberang3.jpg" alt="Singa">
-        <div class="animal-name">Berang - Berang</div>
-        <a href="berangberang3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-        <img src="jenjangmahkota3.jpg" alt="Kadal">
-        <div class="animal-name">Jenjang Mahkota</div>
-        <a href="jenjangmahkota3.html" class="btn-view">VIEW</a>
-    </div>
-
-
-      <!-- Card 4 -->
-    <div class="card">
-        <img src="lutungperak3.jpg" alt="Hewan 10">
-        <div class="animal-name">Lutung Perak</div>
-        <a href="lutungperak3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-        <img src="kalong3.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Kalong</div>
-        <a href="kalong3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-        <img src="binturong3.jpg" alt="Singa">
-        <div class="animal-name">Binturong Kalimatan</div>
-        <a href="binturong3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="card">
-        <img src="pelikan3.jpg" alt="Hewan 6">
-        <div class="animal-name">Pelikan Timor</div>
-        <a href="pelikantimor3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="card">
-        <img src="elangular3.jpg" alt="Rusa Tutul">
-        <div class="animal-name">Elang Ular Bido</div>
-        <a href="elangular3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 9 -->
-    <div class="card">
-        <img src="aramerah3.jpg" alt="Singa">
-        <div class="animal-name">Ara Merah Sayap Hijau</div>
-        <a href="aramerah3.html" class="btn-view">VIEW</a>
-    </div>
-
-    <!-- Card 10 -->
-    <div class="card">
-        <img src="musanggaling3.jpg" alt="Hewan 9">
-        <div class="animal-name">Musang Galing</div>
-        <a href="musanggaling3.html" class="btn-view">VIEW</a>
-    </div>
-
-  <a href="index.html" class="back-btn">Kembali</a>
+    <a href="index.html" class="back-btn">Kembali</a>
 
 </div>
 
