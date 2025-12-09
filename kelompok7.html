@@ -26,9 +26,16 @@
             font-weight: 700;
         }
 
+        /* WRAPPER AGAR 2 CARD PER BARIS DI DESKTOP */
+        .card-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
         .card {
             background: #fff;
-            margin: 25px auto;
             border-radius: 12px;
             overflow: hidden;
             width: 350px;
@@ -48,15 +55,15 @@
 
         .animal-name {
             text-align: center;
+            padding: 15px 0 5px;
             font-size: 18px;
-            font-weight: 600;
-            padding: 12px 0 5px;
+            font-weight: bold;
         }
 
         .btn-view {
             display: block;
             width: 160px;
-            margin: 10px auto 20px;
+            margin: 15px auto 25px;
             padding: 10px 0;
             text-align: center;
             background: #333;
@@ -86,7 +93,7 @@
             background: #555;
         }
 
-        /* Responsif */
+        /* RESPONSIF HP */
         @media (max-width: 480px) {
             .card {
                 width: 90%;
@@ -101,76 +108,70 @@
 <body>
 
 <div class="container">
-    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN</h1>
+    <h1>KEANEKARAGAMAN INTERAKSI BIODIVERSITAS HEWAN </h1>
 
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="Trenggiling7.jpg" alt="Trenggiling">
-        <div class="animal-name">Trenggiling</div>
-        <a href="trenggiling7.html" class="btn-view">VIEW</a>
-    </div>
+    <div class="card-wrapper">
 
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="Ayam mutiara7.jpg" alt="Ayam Mutiara">
-        <div class="animal-name">Ayam Mutiara</div>
-        <a href="ayammutiara7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Trenggiling7.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Trenggiling (</div>
+            <a href="trenggiling7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 3 -->
-    <div class="card">
-        <img src="Arwana banjar7.jpg" alt="Arwana Banjar">
-        <div class="animal-name">Arwana Banjar</div>
-        <a href="arwanabanjar7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Ayam mutiara7.jpg" alt="Singa">
+            <div class="animal-name">Ayam Mutiara</div>
+            <a href="ayammutiara7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 4 -->
-    <div class="card">
-        <img src="Merak hijau7.jpg" alt="Merak Hijau">
-        <div class="animal-name">Merak Hijau</div>
-        <a href="merakhijau7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Arwana banjar7.jpg" alt="Kadal">
+            <div class="animal-name"> Arwana Banjar </div>
+            <a href="arwanabanjar7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 5 -->
-    <div class="card">
-        <img src="Buaya muara7.jpg" alt="Buaya Muara">
-        <div class="animal-name">Buaya Muara</div>
-        <a href="Buaya7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Merak hijau7.jpg" alt="Hewan 10">
+            <div class="animal-name"> Merak Hijau </div>
+            <a href="merakhijau7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 6 -->
-    <div class="card">
-        <img src="kurakura7.jpg" alt="Kura-Kura Sulcata">
-        <div class="animal-name">Kura-Kura Sulcata</div>
-        <a href="kurakura7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Buaya muara7.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Buaya Muara</div>
+            <a href="Buaya7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 7 -->
-    <div class="card">
-        <img src="betetkalung7.jpg" alt="Burung Betet Kalung">
-        <div class="animal-name">Burung Betet Kalung</div>
-        <a href="betetkalung7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="kurakura7.jpg" alt="Singa">
+            <div class="animal-name">Kura-kura Sulcata</div>
+            <a href="kurakura7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 8 -->
-    <div class="card">
-        <img src="Burung kasuari7.jpg" alt="Burung Kasuari">
-        <div class="animal-name">Burung Kasuari</div>
-        <a href="kasuari7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="betetkalung7.jpg" alt="Hewan 6">
+            <div class="animal-name">Burung Betet Kalung</div>
+            <a href="betetkalung7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 9 -->
-    <div class="card">
-        <img src="Banteng7.jpg" alt="Banteng">
-        <div class="animal-name">Banteng</div>
-        <a href="banteng7.html" class="btn-view">VIEW</a>
-    </div>
+        <div class="card">
+            <img src="Burung kasuari7.jpg" alt="Rusa Tutul">
+            <div class="animal-name">Burung Kasuari</div>
+            <a href="kasuari7.html" class="btn-view">VIEW</a>
+        </div>
 
-    <!-- Card 10 -->
-    <div class="card">
-        <img src="Lutung7.jpg" alt="Lutung Jawa">
-        <div class="animal-name">Lutung Jawa</div>
-        <a href="lutung7.html" class="btn-view">VIEW</a>
+        <div class="card">
+            <img src="Banteng7.jpg" alt="Singa">
+            <div class="animal-name"> Banteng</div>
+            <a href="banteng7.html" class="btn-view">VIEW</a>
+        </div>
+
+        <div class="card">
+            <img src="Lutung7.jpg" alt="Hewan 9">
+            <div class="animal-name"> Lutung Jawa </div>
+            <a href="lutung7.html" class="btn-view">VIEW</a>
+        </div>
+
     </div>
 
     <a href="index.html" class="back-btn">Kembali</a>
